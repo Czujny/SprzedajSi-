@@ -48,30 +48,27 @@ app.post('/logIn', function(req, res){
 })
 
 app.post('/RegIn', function(req, res){
-  var regInM = req.body.mail;
-  var regInI = req.body.imie;
-  var regInN = req.body.nazwisko;
-  var regInNick = req.body.nick;
-  var regInH1 = req.body.haslo;
-  var regInH2 = req.body.hasloAgain;
   pool.getConnection(function(err,connection) {
     //console.log('connected as id ' + connection.threadId);
     console.log('connected as id '+ connection.threadId);
-    var dBquery = "INSERT INTO uzytkownicy VALUES("
-                + regInM + ","
-                + regInI + ","
-                + regInN + ","
-                + regInNick + ","
-                + regInH1 + ","
-                + "2016-12-13" + ","
+    var dBquery = "INSERT INTO uzytkownicy (id, mail, imie, nazwisko, nick, haslo, datarej, punkty, ogloszenia) VALUES (6, '"
+                + req.body.mail + "','"
+                + req.body.imie + "','"
+                + req.body.nazwisko + "','"
+                + req.body.nick + "','"
+                + req.body.haslo + "',"
+                + "CURDATE()"+ ","
                 + 5 + ","
-                + 0 + ","
-                +")";
-    connection.query(dBquery);
-
-
+                + 0 +")";
+    connection.query(dBquery, function(err, rows2, fields) {
+      if (err) {
+        throw err;
+      } else {
+        console.log("put");
+      }
+    });
   });
-  res.send("e-mail: " + regInM + " imie: "+ regInI);
+  res.send("e-mail: " + " imie: ");
   //express.static('home_page')
 })
 
