@@ -101,14 +101,37 @@ app.post('/RegIn', function(req, res){
                 + "CURDATE()"+ ","
                 + 0 + ","
                 + 0 +")";
-    connection.query(dBquery, function(err, rows2, fields) {
+
+
+    var checkMail = "SELECT * FROM uzytkownicy WHERE mail ='" + req.body.mail +"' OR nick ='" + req.body.nick +"'";
+    connection.query(checkMail, function(err, rows2, fields) {
       if (err) {
         throw err;
       } else {
+        console.log("Sprawdzam maila");
         console.log("ksz ksz");
+        if(rows2[0] == undefined){
+          console.log("Dodawanie uzytkownika");
+          console.log("ksz ksz");
+
+          connection.query(dBquery, function(err, rows2, fields) {
+            if (err) {
+              throw err;
+            } else {
+              console.log("ksz ksz");
+            }
+            connection.release();
+          });
+
+        }else{
+              ////////////////////////////////////////////////////////////// TODO JEST TEN MAIL
+
+        }
+
       }
-      connection.release();
     });
+
+
   });
   res.redirect('/login/');
   //express.static('home_page')
