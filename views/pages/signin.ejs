@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Sprzedaj Się - logowanie</title>
+  <% include ../elements/includes %>
+	<script src="/rsrc/script.js"></script>
+</head>
+<body>
+<body>
+<div id="container">
+	<div id="top_bar">
+		 <a href="/"><img style="cursor: pointer; margin-top: 9px;" src="logo.png" onclick="" height="25px"></a>
+	</div>
+	<div id="base">
+		<div id="box">
+			<div id="wskaznik">
+
+				<div class="wsk" id="wskLog" ></div>
+				<div class="wsk" id="wskReg" ></div>
+
+			</div>
+			<div id="loginReg">
+
+				<div class="logButt" onclick="trig(1)">Logowanie</div>
+				<div class="logButt" onclick="trig(2)">Rejestracja</div>
+
+			</div>
+			<div id="action_bar2">
+				<% include ../elements/logform %>
+				<% include ../elements/regform %>
+			</div>
+		</div>
+		<div id="info">
+			<div style="text-align: center; width: 100%; font-size: 28px;">Po co do nas dołączyć?</div>
+			<div id="tak">
+				<div style="text-align: center; width: 100%; font-size: 16px; background-color: #fcfaf4;">Ogłaszaj za DARMO swoje lub swojej firmy usługi!</div>
+				<div style="text-align: center; width: 100%; font-size: 16px; margin-top: 20px; background-color: #fcfaf4;">Daj się odkryć, może to właśnie Ciebie ktoś aktualnie poszukuje!</div>
+			</div>
+		</div>
+	</div>
+	<% include ../elements/footer %>
+</div>
+
+
+
+	<script>
+		setInterval(checkData, 200);
+	  //TODO: ZAMIENIC NA ONCHANGE()
+	</script>
+</body>
+</html>

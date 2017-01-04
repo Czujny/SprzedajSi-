@@ -1,0 +1,25 @@
+<div id="regform">
+<form action='/RegIn' method='POST'>
+  <div class="control-group col-xs-12 col-md-12" style="padding-left: 20px; padding-right: 20px; margin-bottom: 8px;">
+    <input type="text" value="" class="form-control" id="mail" name="mail" placeholder="E-mail">
+  </div>
+  <div class="control-group col-xs-6 col-md-6" style="padding-left: 20px; padding-right: 20px; margin-bottom: 8px;">
+    <input type="text" value="" class="form-control" id="imie" name="imie" placeholder="Imię">
+  </div>
+  <div class="control-group col-xs-6 col-md-6" style="padding-left: 20px; padding-right: 20px; margin-bottom: 8px;">
+    <input type="text" value="" class="form-control" id="nazwisko" name="nazwisko" placeholder="Nazwisko">
+  </div>
+  <div class="control-group col-xs-12 col-md-12" style="padding-left: 20px; padding-right: 20px; margin-bottom: 22px;">
+    <input type="text" value="" class="form-control" id="nick" name="nick" placeholder="Nick">
+  </div>
+  <div class="control-group col-xs-12 col-md-12" style="padding-left: 20px; padding-right: 20px; margin-bottom: 8px;">
+    <input type="password" value="" class="form-control" id="haslo" name="haslo" placeholder="Hasło">
+  </div>
+  <div class="control-group col-xs-12 col-md-12" style="padding-left: 20px; padding-right: 20px; margin-bottom: 8px;">
+    <input type="password" value="" class="form-control" id="hasloAgain" name="hasloAgain" placeholder="Powtórz hasło">
+  </div>
+  <button class="btn" disabled="false" id="regButt" onmouseover="checkData()" style="margin-top: 1%; margin-bottom: 10px;">Zarejestruj się</button>
+  <div id="wrongFormula" style="color: #db8181; "></div>
+  <div id="wrongPass" style="color: #db8181;"></div>
+</form>
+</div>
