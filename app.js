@@ -40,7 +40,11 @@ app.use('/rsrc', express.static('rsrc'));
 app.get('/', function(req,res) {
   pool.getConnection(function(err,connection) {
     getCategories(connection, function(res0) {
-      res.render('pages/main', {categories: res0});
+       var cookies = cookie.parse(req.headers.cookie || '');
+       var name = cookies.user;
+
+       res.render('pages/main', {categories: res0, name: name}); ///////// TODO 
+
       connection.release();
     });
   });
@@ -65,7 +69,7 @@ app.post('/LogInIN', function(req, res){
       console.log(rows[0].haslo);
       if(req.body.haslo == rows[0].haslo){
         console.log("Dobre haslo");        // DOBRE HASLO LOGOWANIE
-        res.setHeader('Set-Cookie', cookie.serialize('user', 'zalogowano', {
+        res.setHeader('Set-Cookie', cookie.serialize('user', req.body.mail, {
             httpOnly: true,
             maxAge: 60 * 60 * 24 * 2 // 2 DNI
         }));
